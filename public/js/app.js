@@ -39858,6 +39858,16 @@ var map = {
 		7,
 		"resources_js_Pages_CreateTransaction_tsx"
 	],
+	"./EditTransaction": [
+		"./resources/js/Pages/EditTransaction.tsx",
+		7,
+		"resources_js_Pages_EditTransaction_tsx"
+	],
+	"./EditTransaction.tsx": [
+		"./resources/js/Pages/EditTransaction.tsx",
+		7,
+		"resources_js_Pages_EditTransaction_tsx"
+	],
 	"./Home": [
 		"./resources/js/Pages/Home.tsx",
 		9,
@@ -39878,6 +39888,16 @@ var map = {
 		7,
 		"resources_js_Pages_Login_tsx"
 	],
+	"./Receipt": [
+		"./resources/js/Pages/Receipt.tsx",
+		7,
+		"resources_js_Pages_Receipt_tsx"
+	],
+	"./Receipt.tsx": [
+		"./resources/js/Pages/Receipt.tsx",
+		7,
+		"resources_js_Pages_Receipt_tsx"
+	],
 	"./Register": [
 		"./resources/js/Pages/Register.tsx",
 		7,
@@ -39887,6 +39907,16 @@ var map = {
 		"./resources/js/Pages/Register.tsx",
 		7,
 		"resources_js_Pages_Register_tsx"
+	],
+	"./TransactionList": [
+		"./resources/js/Pages/TransactionList.tsx",
+		7,
+		"resources_js_Pages_TransactionList_tsx"
+	],
+	"./TransactionList.tsx": [
+		"./resources/js/Pages/TransactionList.tsx",
+		7,
+		"resources_js_Pages_TransactionList_tsx"
 	]
 };
 function webpackAsyncContext(req) {
@@ -40067,7 +40097,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_Pages_CreateTransaction_tsx":1,"resources_js_Pages_Home_tsx":1,"resources_js_Pages_Login_tsx":1,"resources_js_Pages_Register_tsx":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_Pages_CreateTransaction_tsx":1,"resources_js_Pages_EditTransaction_tsx":1,"resources_js_Pages_Home_tsx":1,"resources_js_Pages_Login_tsx":1,"resources_js_Pages_Receipt_tsx":1,"resources_js_Pages_Register_tsx":1,"resources_js_Pages_TransactionList_tsx":1,"node_modules_html2canvas_dist_html2canvas_js":1,"node_modules_dompurify_dist_purify_js":1,"node_modules_canvg_lib_index_es_js":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

@@ -19,11 +19,11 @@ var FormInput = function FormInput(props) {
   return (0, jsx_runtime_1.jsx)(jsx_runtime_1.Fragment, {
     children: (0, jsx_runtime_1.jsxs)("div", {
       children: [(0, jsx_runtime_1.jsx)("label", Object.assign({
-        className: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+        className: "block font-bold mt-3 pr-4 pl-10"
       }, {
         children: props.label
       })), (0, jsx_runtime_1.jsx)("br", {}), (0, jsx_runtime_1.jsx)("input", {
-        className: "shadow appearance-none border rounded w-half py-2 px-3 mx-5 my-5 text-gray-700 focus:shadow-outline",
+        className: "border-2 border-indigo-500/75 w-3/5 py-1 mx-10 text-black-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500",
         type: props.type,
         name: props.name,
         value: props.value,
@@ -54,7 +54,7 @@ var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules
 var PageName = function PageName(props) {
   return (0, jsx_runtime_1.jsx)(jsx_runtime_1.Fragment, {
     children: (0, jsx_runtime_1.jsx)("h1", Object.assign({
-      className: "text-xl my-10 font-bold underline"
+      className: "text-xl text-center py-10 font-bold"
     }, {
       children: props.title
     }))
@@ -73,20 +73,6 @@ exports["default"] = PageName;
 
 
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -99,64 +85,82 @@ Object.defineProperty(exports, "__esModule", ({
 
 var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
-var react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
 var inertia_1 = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+
+var inertia_react_1 = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 
 var PageName_1 = __importDefault(__webpack_require__(/*! ../Components/PageName */ "./resources/js/Components/PageName.tsx"));
 
 var FormInput_1 = __importDefault(__webpack_require__(/*! ../Components/FormInput */ "./resources/js/Components/FormInput.tsx"));
 
-var LogIn = function LogIn() {
-  var _ref = (0, react_1.useState)({
-    email: "",
-    password: ""
+var Login = function Login() {
+  var _ref = (0, inertia_react_1.useForm)({
+    mail: '',
+    password: ''
   }),
-      _ref2 = _slicedToArray(_ref, 2),
-      user = _ref2[0],
-      setUser = _ref2[1];
+      data = _ref.data,
+      setData = _ref.setData,
+      post = _ref.post,
+      errors = _ref.errors;
 
   var handleData = function handleData(event) {
     event.preventDefault();
-    inertia_1.Inertia.post('/', user);
+    post('login-user');
   };
 
-  var name, value;
-
-  var handleInput = function handleInput(event) {
-    name = event.target.name;
-    value = event.target.value;
-    setUser(Object.assign(Object.assign({}, user), _defineProperty({}, name, value)));
+  var handleClick = function handleClick() {
+    inertia_1.Inertia.get('register');
   };
 
-  return (0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, {
+  return (0, jsx_runtime_1.jsxs)("div", Object.assign({
+    className: "bg-slate-100"
+  }, {
     children: [(0, jsx_runtime_1.jsx)(PageName_1["default"], {
       title: "Login Page"
     }), (0, jsx_runtime_1.jsxs)("form", Object.assign({
-      onSubmit: handleData
+      onSubmit: handleData,
+      className: "mx-80 border-2 border-gray-200 bg-purple-200"
     }, {
       children: [(0, jsx_runtime_1.jsx)(FormInput_1["default"], {
-        label: "Email Id",
-        name: "email",
-        value: user.email,
+        label: "Email Id*",
+        name: "mail",
+        value: data.mail,
         type: "email",
-        onChange: handleInput
+        onChange: function onChange(e) {
+          return setData('mail', e.target.value);
+        }
+      }), errors.mail && (0, jsx_runtime_1.jsx)("div", {
+        children: errors.mail
       }), (0, jsx_runtime_1.jsx)(FormInput_1["default"], {
-        label: "Password",
+        label: "Password*",
         name: "password",
-        value: user.password,
+        value: data.password,
         type: "password",
-        onChange: handleInput
+        onChange: function onChange(e) {
+          return setData('password', e.target.value);
+        }
+      }), errors.password && (0, jsx_runtime_1.jsx)("div", {
+        children: errors.password
       }), (0, jsx_runtime_1.jsx)("button", Object.assign({
-        type: "submit"
+        type: "submit",
+        className: "bg-white hover:bg-blue-500 text-blue-700 font-semibold hover:text-white ml-10 px-4 mb-3 border border-blue-500 hover:border-transparent rounded"
       }, {
-        children: "Register"
+        children: "Login"
+      }))]
+    })), (0, jsx_runtime_1.jsx)("br", {}), (0, jsx_runtime_1.jsxs)("div", Object.assign({
+      className: "ml-80"
+    }, {
+      children: ["Not a user? ", (0, jsx_runtime_1.jsx)("button", Object.assign({
+        onClick: handleClick,
+        className: "bg-white hover:bg-blue-500 text-blue-700 font-semibold hover:text-white  px-4 border border-blue-500 hover:border-transparent rounded"
+      }, {
+        children: "Register here"
       }))]
     }))]
-  });
+  }));
 };
 
-exports["default"] = LogIn;
+exports["default"] = Login;
 
 /***/ }),
 

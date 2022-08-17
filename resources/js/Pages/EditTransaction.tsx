@@ -6,40 +6,44 @@ import FormInputSelect from '../Components/FormInputSelect';
 import PageName from '../Components/PageName'
 import { useForm } from '@inertiajs/inertia-react'
 import QuickLinks from '../Components/QuickLinks';
+type editable=any;
 
 
 
-
-const CreateTransaction = () => {
+const EditTransaction = (props:editable) => {
     const { data, setData, post, errors } = useForm({
-        date:'',
-        description:'',
-        paid:'',
-        unit_amount:'',
-        unit_quantity:'',
-        unit_name:'',
-        type:'',
-        status:'',
-        utr:'',
-        comments:'',
-        project:'',
+        id: props.editable.id,
+        date: props.editable.date,
+        description: props.editable.description,
+        paid: props.editable.paid,
+        unit_amount: props.editable.unit_amount,
+        unit_quantity: props.editable.unit_quantity,
+        unit_name: props.editable.unit_name,
+        type: props.editable.type,
+        status: props.editable.status,
+        utr: props.editable.utr,
+        comments: props.editable.comments,
+        project: props.editable.project,
     })
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) =>{
-        event.preventDefault();
-        post('/transaction-save')
-    }
+
     let name,value;
     const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>) =>{
       name = event.target.name;
       value= event.target.value;
+
       setData({...data, [name]:value});
-  }  
+  }
+
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) =>{
+        event.preventDefault();
+        
+        post('/update-transaction')
+    } 
   return (
     <>
       <QuickLinks/>
-        <PageName title='Create Transaction' />
-      
-        <form onSubmit={handleSubmit} className="mx-80 border-2 border-gray-200 bg-purple-200 mb-5">
+      <PageName title='Edit Transaction' />
+      <form onSubmit={handleSubmit} className="mx-80 border-2 border-gray-200 bg-purple-200 mb-5">
         <FormInput label='Enter Date' type='date'  name='date' value={data.date} onChange={e => setData('date', e.target.value)} />
         {errors.date && <div>{errors.date}</div>}
         <FormInput label='Enter Description' type='text' name='description'  value={data.description} onChange={e => setData('description', e.target.value)} />
@@ -62,10 +66,10 @@ const CreateTransaction = () => {
         {errors.comments && <div>{errors.comments}</div>}
         <FormInput label='Enter Project Name' type='text' name='project'  value={data.project} onChange={e => setData('project', e.target.value)}/>
         {errors.project && <div>{errors.project}</div>}
-        <button type="submit" className="bg-emerald-400 hover:bg-blue-500 text-white font-semibold hover:text-white pr-4 pl-2 ml-10 mb-5 :border-transparent rounded">Create Transaction</button>
-        </form>
+                   <button type="submit" className="bg-emerald-400 hover:bg-blue-500 text-white font-semibold hover:text-white pr-4 pl-2 ml-10 mb-5 :border-transparent rounded">Update Transaction</button>
+      </form>  
     </>
   )
 }
 
-export default CreateTransaction
+export default EditTransaction
