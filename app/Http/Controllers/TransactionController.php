@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 use Illuminate\Http\Request;
-use App\Models\transaction;
+use App\Models\Transaction;
 use App\Http\Requests\TransactionRequest;
 use PDF;
 use Illuminate\Support\Facades\Redirect;
@@ -20,7 +20,7 @@ class TransactionController extends Controller
     }
 
     public function save(TransactionRequest $request){
-            $Transaction= new Transaction();
+            $Transaction = new Transaction();
             $Transaction->date = $request->date;
             $Transaction->description = $request->description;
             $Transaction->paid = $request->paid;
@@ -32,7 +32,7 @@ class TransactionController extends Controller
             $Transaction->utr = $request->utr;
             $Transaction->comments = $request->comments;
             $Transaction->project = $request->project;
-            $res= $Transaction-> save();
+            $res = $Transaction->save();
             return Redirect::route('transaction-list');       
     }
 
@@ -53,8 +53,8 @@ class TransactionController extends Controller
     }
 
     public function update( Request $request){
-            $Transaction= Transaction::find($request->id);
-            $Transaction-> date= $request->date;
+            $Transaction = Transaction::find($request->id);
+            $Transaction->date = $request->date;
             $Transaction->description = $request->description;
             $Transaction->paid = $request->paid;
             $Transaction->unit_amount = $request->unit_amount;
@@ -64,7 +64,7 @@ class TransactionController extends Controller
             $Transaction->status = $request->status;
             $Transaction->comments = $request->comments;
             $Transaction->project = $request->project;
-            $res= $Transaction-> save();
+            $resa= $Transaction->save();
             return Redirect::route('transaction-list');
     }
 
