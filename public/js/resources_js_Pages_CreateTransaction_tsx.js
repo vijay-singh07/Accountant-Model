@@ -19,11 +19,11 @@ var FormInput = function FormInput(props) {
   return (0, jsx_runtime_1.jsx)(jsx_runtime_1.Fragment, {
     children: (0, jsx_runtime_1.jsxs)("div", {
       children: [(0, jsx_runtime_1.jsx)("label", Object.assign({
-        className: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+        className: "block font-bold mt-3 pr-4 pl-10"
       }, {
         children: props.label
       })), (0, jsx_runtime_1.jsx)("br", {}), (0, jsx_runtime_1.jsx)("input", {
-        className: "shadow appearance-none border rounded w-half py-2 px-3 mx-5 my-5 text-gray-700 focus:shadow-outline",
+        className: "border-2 border-indigo-500/75 w-3/5 py-1 mx-10 text-black-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500",
         type: props.type,
         name: props.name,
         value: props.value,
@@ -54,20 +54,22 @@ var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules
 var FormInputSelect = function FormInputSelect(props) {
   return (0, jsx_runtime_1.jsx)(jsx_runtime_1.Fragment, {
     children: (0, jsx_runtime_1.jsxs)("div", {
-      children: [(0, jsx_runtime_1.jsx)("label", {
+      children: [(0, jsx_runtime_1.jsx)("label", Object.assign({
+        className: "block font-bold mt-3 pr-4 pl-10"
+      }, {
         children: props.label
-      }), (0, jsx_runtime_1.jsx)("br", {}), (0, jsx_runtime_1.jsx)("select", Object.assign({
-        className: "shadow appearance-none border rounded w-half py-2 px-3 text-gray-700 focus:shadow-outline",
+      })), (0, jsx_runtime_1.jsx)("br", {}), (0, jsx_runtime_1.jsx)("select", Object.assign({
+        className: "bg-white border-2 border-indigo-500/75 w-fit py-1 mx-10 text-black-700 focus:outline-none focus:bg-white focus:border-purple-500",
         name: props.name,
         value: props.value,
         onChange: props.onChange
       }, {
-        children: props.dropdown.map(function (ele) {
+        children: props.dropdown.map(function (e) {
           return (0, jsx_runtime_1.jsxs)("option", Object.assign({
-            value: ele
+            value: e
           }, {
-            children: [" ", ele, " "]
-          }), ele);
+            children: [" ", e, " "]
+          }), e);
         })
       })), (0, jsx_runtime_1.jsx)("br", {}), (0, jsx_runtime_1.jsx)("br", {})]
     })
@@ -95,7 +97,7 @@ var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules
 var PageName = function PageName(props) {
   return (0, jsx_runtime_1.jsx)(jsx_runtime_1.Fragment, {
     children: (0, jsx_runtime_1.jsx)("h1", Object.assign({
-      className: "text-xl my-10 font-bold underline"
+      className: "text-xl text-center py-10 font-bold"
     }, {
       children: props.title
     }))
@@ -103,6 +105,51 @@ var PageName = function PageName(props) {
 };
 
 exports["default"] = PageName;
+
+/***/ }),
+
+/***/ "./resources/js/Components/QuickLinks.tsx":
+/*!************************************************!*\
+  !*** ./resources/js/Components/QuickLinks.tsx ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+var inertia_react_1 = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+
+var QuickLinks = function QuickLinks() {
+  return (0, jsx_runtime_1.jsx)(jsx_runtime_1.Fragment, {
+    children: (0, jsx_runtime_1.jsxs)("nav", Object.assign({
+      className: "pt-3 pl-5"
+    }, {
+      children: [(0, jsx_runtime_1.jsx)(inertia_react_1.InertiaLink, Object.assign({
+        href: "/transaction",
+        className: "bg-purple-400 hover:bg-red-400 text-white font-bold py-1 pr-4 pl-2 mr-10 rounded focus:shadow-outline"
+      }, {
+        children: "Create Transaction"
+      })), (0, jsx_runtime_1.jsx)(inertia_react_1.InertiaLink, Object.assign({
+        href: "/transaction-list",
+        className: "bg-purple-400 hover:bg-red-400 text-white font-bold py-1 px-4 mr-10 rounded focus:shadow-outline"
+      }, {
+        children: "Transaction List"
+      })), (0, jsx_runtime_1.jsx)(inertia_react_1.InertiaLink, Object.assign({
+        href: "/logout",
+        className: "bg-red-400 hover:bg-red-700 text-white font-bold py-1 px-4 ml-96 rounded focus:shadow-outline"
+      }, {
+        children: "Logout"
+      }))]
+    }))
+  });
+};
+
+exports["default"] = QuickLinks;
 
 /***/ }),
 
@@ -116,26 +163,6 @@ exports["default"] = PageName;
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -148,16 +175,18 @@ Object.defineProperty(exports, "__esModule", ({
 
 var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
-var react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
 var FormInput_1 = __importDefault(__webpack_require__(/*! ../Components/FormInput */ "./resources/js/Components/FormInput.tsx"));
 
 var FormInputSelect_1 = __importDefault(__webpack_require__(/*! ../Components/FormInputSelect */ "./resources/js/Components/FormInputSelect.tsx"));
 
 var PageName_1 = __importDefault(__webpack_require__(/*! ../Components/PageName */ "./resources/js/Components/PageName.tsx"));
 
+var inertia_react_1 = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+
+var QuickLinks_1 = __importDefault(__webpack_require__(/*! ../Components/QuickLinks */ "./resources/js/Components/QuickLinks.tsx"));
+
 var CreateTransaction = function CreateTransaction() {
-  var _ref = (0, react_1.useState)({
+  var _ref = (0, inertia_react_1.useForm)({
     date: '',
     description: '',
     paid: '',
@@ -170,136 +199,140 @@ var CreateTransaction = function CreateTransaction() {
     comments: '',
     project: ''
   }),
-      _ref2 = _slicedToArray(_ref, 2),
-      fields = _ref2[0],
-      setFields = _ref2[1];
-
-  var _ref3 = (0, react_1.useState)([{}]),
-      _ref4 = _slicedToArray(_ref3, 2),
-      allTrans = _ref4[0],
-      setAllTrans = _ref4[1];
+      data = _ref.data,
+      setData = _ref.setData,
+      post = _ref.post,
+      errors = _ref.errors;
 
   var handleSubmit = function handleSubmit(event) {
     event.preventDefault();
-    var newEntry = {
-      id: new Date().getTime().toString(),
-      date: fields.date,
-      description: fields.description,
-      paid: fields.paid,
-      unit_amount: fields.unit_amount,
-      unit_quantity: fields.unit_quantity,
-      unit_name: fields.unit_name,
-      utr: fields.utr,
-      type: fields.type,
-      status: fields.status,
-      comments: fields.comments,
-      project: fields.project
-    };
-    setFields({
-      date: '',
-      description: '',
-      paid: '',
-      unit_amount: '',
-      unit_quantity: '',
-      unit_name: '',
-      type: '',
-      status: '',
-      utr: '',
-      comments: '',
-      project: ''
-    });
-    setAllTrans([].concat(_toConsumableArray(allTrans), [newEntry]));
+    post('/transaction-save');
   };
 
   var name, value;
 
-  var onChange = function onChange(event) {
-    name = event.target.name;
-    value = event.target.value;
-    setFields(Object.assign(Object.assign({}, fields), _defineProperty({}, name, value)));
-  };
-
   var handleSelect = function handleSelect(event) {
     name = event.target.name;
     value = event.target.value;
-    setFields(Object.assign(Object.assign({}, fields), _defineProperty({}, name, value)));
+    setData(Object.assign(Object.assign({}, data), _defineProperty({}, name, value)));
   };
 
   return (0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, {
-    children: [(0, jsx_runtime_1.jsx)(PageName_1["default"], {
+    children: [(0, jsx_runtime_1.jsx)(QuickLinks_1["default"], {}), (0, jsx_runtime_1.jsx)(PageName_1["default"], {
       title: 'Create Transaction'
     }), (0, jsx_runtime_1.jsxs)("form", Object.assign({
       onSubmit: handleSubmit,
-      className: "mb-5 mt-5"
+      className: "mx-80 border-2 border-gray-200 bg-purple-200 mb-5"
     }, {
       children: [(0, jsx_runtime_1.jsx)(FormInput_1["default"], {
         label: 'Enter Date',
         type: 'date',
         name: 'date',
-        value: fields.date,
-        onChange: onChange
+        value: data.date,
+        onChange: function onChange(e) {
+          return setData('date', e.target.value);
+        }
+      }), errors.date && (0, jsx_runtime_1.jsx)("div", {
+        children: errors.date
       }), (0, jsx_runtime_1.jsx)(FormInput_1["default"], {
         label: 'Enter Description',
         type: 'text',
         name: 'description',
-        value: fields.description,
-        onChange: onChange
+        value: data.description,
+        onChange: function onChange(e) {
+          return setData('description', e.target.value);
+        }
+      }), errors.description && (0, jsx_runtime_1.jsx)("div", {
+        children: errors.description
       }), (0, jsx_runtime_1.jsx)(FormInput_1["default"], {
         label: 'Enter Paid to/by',
         type: 'text',
         name: 'paid',
-        value: fields.paid,
-        onChange: onChange
+        value: data.paid,
+        onChange: function onChange(e) {
+          return setData('paid', e.target.value);
+        }
+      }), errors.paid && (0, jsx_runtime_1.jsx)("div", {
+        children: errors.paid
       }), (0, jsx_runtime_1.jsx)(FormInput_1["default"], {
         label: 'Enter Unit Amount',
         type: 'text',
         name: 'unit_amount',
-        value: fields.unit_amount,
-        onChange: onChange
+        value: data.unit_amount,
+        onChange: function onChange(e) {
+          return setData('unit_amount', e.target.value);
+        }
+      }), errors.unit_amount && (0, jsx_runtime_1.jsx)("div", {
+        children: errors.unit_amount
       }), (0, jsx_runtime_1.jsx)(FormInput_1["default"], {
         label: 'Enter Unit Quanity',
         type: 'text',
         name: 'unit_quantity',
-        value: fields.unit_quantity,
-        onChange: onChange
+        value: data.unit_quantity,
+        onChange: function onChange(e) {
+          return setData('unit_quantity', e.target.value);
+        }
+      }), errors.unit_quantity && (0, jsx_runtime_1.jsx)("div", {
+        children: errors.unit_quantity
       }), (0, jsx_runtime_1.jsx)(FormInput_1["default"], {
         label: 'Enter Unit Name',
         type: 'text',
         name: 'unit_name',
-        value: fields.unit_name,
-        onChange: onChange
+        value: data.unit_name,
+        onChange: function onChange(e) {
+          return setData('unit_name', e.target.value);
+        }
+      }), errors.unit_name && (0, jsx_runtime_1.jsx)("div", {
+        children: errors.unit_name
       }), (0, jsx_runtime_1.jsx)(FormInputSelect_1["default"], {
         label: 'Select the Type of Transaction',
         name: 'type',
-        value: fields.type,
+        value: data.type,
         onChange: handleSelect,
         dropdown: ['expense', 'revenue']
+      }), errors.type && (0, jsx_runtime_1.jsx)("div", {
+        children: errors.type
       }), (0, jsx_runtime_1.jsx)(FormInputSelect_1["default"], {
         label: 'Select the status',
         name: 'status',
-        value: fields.status,
+        value: data.status,
         onChange: handleSelect,
         dropdown: ['Due', 'Cancelled', 'Cleared']
+      }), errors.status && (0, jsx_runtime_1.jsx)("div", {
+        children: errors.status
       }), (0, jsx_runtime_1.jsx)(FormInput_1["default"], {
         label: 'Enter UTR',
         type: 'text',
         name: 'utr',
-        value: fields.utr,
-        onChange: onChange
+        value: data.utr,
+        onChange: function onChange(e) {
+          return setData('utr', e.target.value);
+        }
+      }), errors.utr && (0, jsx_runtime_1.jsx)("div", {
+        children: errors.utr
       }), (0, jsx_runtime_1.jsx)(FormInput_1["default"], {
         label: 'Enter Comments',
         type: 'text',
         name: 'comments',
-        value: fields.comments,
-        onChange: onChange
+        value: data.comments,
+        onChange: function onChange(e) {
+          return setData('comments', e.target.value);
+        }
+      }), errors.comments && (0, jsx_runtime_1.jsx)("div", {
+        children: errors.comments
       }), (0, jsx_runtime_1.jsx)(FormInput_1["default"], {
         label: 'Enter Project Name',
         type: 'text',
         name: 'project',
-        value: fields.project,
-        onChange: onChange
+        value: data.project,
+        onChange: function onChange(e) {
+          return setData('project', e.target.value);
+        }
+      }), errors.project && (0, jsx_runtime_1.jsx)("div", {
+        children: errors.project
       }), (0, jsx_runtime_1.jsx)("button", Object.assign({
-        type: "submit"
+        type: "submit",
+        className: "bg-emerald-400 hover:bg-blue-500 text-white font-semibold hover:text-white pr-4 pl-2 ml-10 mb-5 :border-transparent rounded"
       }, {
         children: "Create Transaction"
       }))]

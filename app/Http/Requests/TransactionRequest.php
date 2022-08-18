@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegisterRequest extends FormRequest
+class TransactionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,15 +22,17 @@ class RegisterRequest extends FormRequest
      * @return array<string, mixed>
      */
     public function rules()
-
     {
-        
         return [
-        'fname'=>'required',
-        'lname'=>'required',
-        'mail'=>'required|email|unique:accountants',
-        'phone'=>'required|max:10',
-        'password'=>'required|confirmed|min:8|max:12'
+            'date'=>'required',
+            'description'=>'required',
+            'paid'=>'required',
+            'unit_amount'=>'required|max:10',
+            'unit_quantity'=>'required|max:10',
+            'unit_name'=>'required',
+            'type'=>'required',
+            'status'=>'required',
+            'project'=>'required'
         ];
     }
 }

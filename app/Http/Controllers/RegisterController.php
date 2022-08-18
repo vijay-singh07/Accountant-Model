@@ -8,6 +8,7 @@ use App\Models\accountant;
 use App\Http\Requests\RegisterRequest;
 use Hash;
 use Session;
+use Illuminate\Support\Facades\Redirect;
 
 class RegisterController extends Controller
 {
@@ -19,7 +20,7 @@ class RegisterController extends Controller
         return Inertia::render('Register');
     }
 
-    public function registerUser(RegisterRequest $request,Accountant $accountant){
+    public function store(RegisterRequest $request){
         $Accountant= new Accountant();
         $Accountant->fname = $request->fname;
         $Accountant->lname = $request->lname;
@@ -27,8 +28,7 @@ class RegisterController extends Controller
         $Accountant->phone = $request->phone;
         $Accountant->password = Hash::make($request->password);
         $res= $Accountant-> save();
-        
-        return Redirect::route('/');
+        return Redirect::route('login');
     }
     
     public function loginUser(Request $request){
@@ -40,7 +40,7 @@ class RegisterController extends Controller
                 if($accountant){
                     if (Hash::check($request->password, $accountant->password)){
                         $request->session()->put('login_Id',$accountant->id);
-                        return redirect()->route('home');
+                        return Redirect::route('transaction-list');
                     }else{
                         return back()->with('fail','The password does not matches');
                     }
@@ -49,5 +49,12 @@ class RegisterController extends Controller
                 }
     }
 
-    
+    function logout()
+    {
+        if(session()->has('login_Id'))
+        {
+            session()->pull('login_Id');
+            return Redirect::route('login');
+        }
+    }
 }

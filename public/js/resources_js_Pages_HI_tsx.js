@@ -1,10 +1,10 @@
 "use strict";
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_Pages_Home_tsx"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_Pages_HI_tsx"],{
 
-/***/ "./resources/js/Pages/Home.tsx":
-/*!*************************************!*\
-  !*** ./resources/js/Pages/Home.tsx ***!
-  \*************************************/
+/***/ "./resources/js/Pages/HI.tsx":
+/*!***********************************!*\
+  !*** ./resources/js/Pages/HI.tsx ***!
+  \***********************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -15,51 +15,19 @@ Object.defineProperty(exports, "__esModule", ({
 
 var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
-var inertia_1 = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-
-var Home = function Home() {
-  var handleClick = function handleClick() {
-    inertia_1.Inertia.get('register');
-  };
-
-  var onClick = function handleClick() {
-    inertia_1.Inertia.get('login');
-  };
-
-  return (0, jsx_runtime_1.jsx)(jsx_runtime_1.Fragment, {
-    children: (0, jsx_runtime_1.jsxs)("div", Object.assign({
-      className: "bg-purple-200"
+var HI = function HI() {
+  return (0, jsx_runtime_1.jsxs)("div", {
+    children: ["Welcome to HiPage.", (0, jsx_runtime_1.jsx)("hr", {}), "Click here to ", (0, jsx_runtime_1.jsx)("a", Object.assign({
+      href: '/transaction-list'
     }, {
-      children: [(0, jsx_runtime_1.jsx)("div", Object.assign({
-        className: "text-x4 text-center font-bold bg-slate-100"
-      }, {
-        children: "Welcome to HomePage."
-      })), (0, jsx_runtime_1.jsx)("hr", {}), (0, jsx_runtime_1.jsxs)("div", Object.assign({
-        className: "py-5 "
-      }, {
-        children: ["Click here to ", (0, jsx_runtime_1.jsx)("button", Object.assign({
-          onClick: handleClick,
-          type: "submit",
-          className: "bg-white hover:bg-blue-500 text-blue-700 font-semibold hover:text-white  px-4 border border-blue-500 hover:border-transparent rounded"
-        }, {
-          children: "Register"
-        }))]
-      })), (0, jsx_runtime_1.jsx)("hr", {}), (0, jsx_runtime_1.jsxs)("div", Object.assign({
-        className: "py-5"
-      }, {
-        children: ["Click here to ", (0, jsx_runtime_1.jsx)("button", Object.assign({
-          onClick: onClick,
-          type: "submit",
-          className: "bg-white hover:bg-blue-500 text-blue-700 font-semibold hover:text-white border border-blue-500 hover:border-transparent rounded"
-        }, {
-          children: "Login"
-        }))]
-      }))]
-    }))
+      children: "Register"
+    })), (0, jsx_runtime_1.jsx)("hr", {}), "Click here to ", (0, jsx_runtime_1.jsx)("a", {
+      children: "Login"
+    })]
   });
 };
 
-exports["default"] = Home;
+exports["default"] = HI;
 
 /***/ }),
 

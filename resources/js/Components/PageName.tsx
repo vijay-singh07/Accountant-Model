@@ -6,7 +6,7 @@ type PageNameProps={
  const PageName = (props: PageNameProps) =>{
     return(
         <>
-            <h1 className="text-xl my-10 font-bold underline">{props.title}</h1>
+            <h1 className="text-xl text-center py-10 font-bold">{props.title}</h1>
         </>
     )
 }

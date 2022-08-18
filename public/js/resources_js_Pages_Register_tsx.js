@@ -19,11 +19,11 @@ var FormInput = function FormInput(props) {
   return (0, jsx_runtime_1.jsx)(jsx_runtime_1.Fragment, {
     children: (0, jsx_runtime_1.jsxs)("div", {
       children: [(0, jsx_runtime_1.jsx)("label", Object.assign({
-        className: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+        className: "block font-bold mt-3 pr-4 pl-10"
       }, {
         children: props.label
       })), (0, jsx_runtime_1.jsx)("br", {}), (0, jsx_runtime_1.jsx)("input", {
-        className: "shadow appearance-none border rounded w-half py-2 px-3 mx-5 my-5 text-gray-700 focus:shadow-outline",
+        className: "border-2 border-indigo-500/75 w-3/5 py-1 mx-10 text-black-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500",
         type: props.type,
         name: props.name,
         value: props.value,
@@ -54,7 +54,7 @@ var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules
 var PageName = function PageName(props) {
   return (0, jsx_runtime_1.jsx)(jsx_runtime_1.Fragment, {
     children: (0, jsx_runtime_1.jsx)("h1", Object.assign({
-      className: "text-xl my-10 font-bold underline"
+      className: "text-xl text-center py-10 font-bold"
     }, {
       children: props.title
     }))
@@ -85,11 +85,13 @@ Object.defineProperty(exports, "__esModule", ({
 
 var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
-var inertia_react_1 = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+var inertia_1 = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+
+var FormInput_1 = __importDefault(__webpack_require__(/*! ../Components/FormInput */ "./resources/js/Components/FormInput.tsx"));
 
 var PageName_1 = __importDefault(__webpack_require__(/*! ../Components/PageName */ "./resources/js/Components/PageName.tsx"));
 
-var FormInput_1 = __importDefault(__webpack_require__(/*! ../Components/FormInput */ "./resources/js/Components/FormInput.tsx"));
+var inertia_react_1 = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 
 var Register = function Register() {
   var _ref = (0, inertia_react_1.useForm)({
@@ -97,75 +99,109 @@ var Register = function Register() {
     lname: '',
     mail: '',
     phone: '',
-    password: ''
+    password: '',
+    password_confirmation: ''
   }),
       data = _ref.data,
       setData = _ref.setData,
       post = _ref.post,
       errors = _ref.errors;
 
-  var handleSubmit = function handleSubmit(e) {
-    e.preventDefault();
-    post('/register-user');
+  var handleSubmit = function handleSubmit(event) {
+    event.preventDefault();
+    post('register-user');
   };
 
-  return (0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, {
+  var handleClick = function handleClick() {
+    inertia_1.Inertia.get('login');
+  };
+
+  return (0, jsx_runtime_1.jsxs)("div", Object.assign({
+    className: "bg-slate-100"
+  }, {
     children: [(0, jsx_runtime_1.jsx)(PageName_1["default"], {
       title: "Register Yourself Here"
     }), (0, jsx_runtime_1.jsxs)("form", Object.assign({
-      onSubmit: handleSubmit
+      onSubmit: handleSubmit,
+      className: "mx-80 border-2 border-gray-200 bg-purple-200"
     }, {
       children: [(0, jsx_runtime_1.jsx)(FormInput_1["default"], {
-        label: 'First Name',
+        label: 'First Name*',
         type: "text",
         value: data.fname,
         name: "fname",
         onChange: function onChange(e) {
           return setData('fname', e.target.value);
         }
+      }), errors.fname && (0, jsx_runtime_1.jsx)("div", {
+        children: errors.fname
       }), (0, jsx_runtime_1.jsx)(FormInput_1["default"], {
-        label: 'last Name',
+        label: 'last Name*',
         type: "text",
         value: data.lname,
         name: "lname",
         onChange: function onChange(e) {
           return setData('lname', e.target.value);
         }
+      }), errors.lname && (0, jsx_runtime_1.jsx)("div", {
+        children: errors.lname
       }), (0, jsx_runtime_1.jsx)(FormInput_1["default"], {
-        label: 'Email',
+        label: 'Email*',
         type: "email",
         value: data.mail,
         name: "mail",
         onChange: function onChange(e) {
           return setData('mail', e.target.value);
         }
+      }), errors.mail && (0, jsx_runtime_1.jsx)("div", {
+        children: errors.mail
       }), (0, jsx_runtime_1.jsx)(FormInput_1["default"], {
-        label: 'Phone NUmber',
+        label: 'Phone NUmber*',
         type: "text",
         value: data.phone,
         name: "phone",
         onChange: function onChange(e) {
           return setData('phone', e.target.value);
         }
+      }), errors.phone && (0, jsx_runtime_1.jsx)("div", {
+        children: errors.phone
       }), (0, jsx_runtime_1.jsx)(FormInput_1["default"], {
-        label: 'Password',
+        label: 'Password*',
         type: "password",
-        name: "fname",
+        name: "password",
         value: data.password,
         onChange: function onChange(e) {
           return setData('password', e.target.value);
         }
+      }), errors.password && (0, jsx_runtime_1.jsx)("div", {
+        children: errors.password
+      }), (0, jsx_runtime_1.jsx)(FormInput_1["default"], {
+        label: 'Confirm Password*',
+        type: "password",
+        name: "password_confirmation",
+        value: data.password_confirmation,
+        onChange: function onChange(e) {
+          return setData('password_confirmation', e.target.value);
+        }
+      }), errors.password_confirmation && (0, jsx_runtime_1.jsx)("div", {
+        children: errors.password_confirmation
       }), (0, jsx_runtime_1.jsx)("button", Object.assign({
-        type: "submit"
+        type: "submit",
+        className: "bg-white hover:bg-blue-500 text-blue-700 font-semibold hover:text-white ml-10 px-4 mb-3 border border-blue-500 hover:border-transparent rounded"
       }, {
         children: "Register"
       }))]
-    })), (0, jsx_runtime_1.jsx)("hr", {}), (0, jsx_runtime_1.jsx)("button", Object.assign({
-      type: "submit"
+    })), (0, jsx_runtime_1.jsxs)("div", Object.assign({
+      className: "ml-80"
     }, {
-      children: "already a user? Log In!"
+      children: ["Alreadya user? ", (0, jsx_runtime_1.jsx)("button", Object.assign({
+        onClick: handleClick,
+        className: "bg-white hover:bg-blue-500 text-blue-700 font-semibold hover:text-white  px-4 border border-blue-500 hover:border-transparent rounded"
+      }, {
+        children: "login here"
+      }))]
     }))]
-  });
+  }));
 };
 
 exports["default"] = Register;

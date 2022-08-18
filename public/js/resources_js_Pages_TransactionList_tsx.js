@@ -1,10 +1,10 @@
 "use strict";
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_Pages_Home_tsx"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_Pages_TransactionList_tsx"],{
 
-/***/ "./resources/js/Pages/Home.tsx":
-/*!*************************************!*\
-  !*** ./resources/js/Pages/Home.tsx ***!
-  \*************************************/
+/***/ "./resources/js/Components/PageName.tsx":
+/*!**********************************************!*\
+  !*** ./resources/js/Components/PageName.tsx ***!
+  \**********************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -15,51 +15,183 @@ Object.defineProperty(exports, "__esModule", ({
 
 var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
-var inertia_1 = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-
-var Home = function Home() {
-  var handleClick = function handleClick() {
-    inertia_1.Inertia.get('register');
-  };
-
-  var onClick = function handleClick() {
-    inertia_1.Inertia.get('login');
-  };
-
+var PageName = function PageName(props) {
   return (0, jsx_runtime_1.jsx)(jsx_runtime_1.Fragment, {
-    children: (0, jsx_runtime_1.jsxs)("div", Object.assign({
-      className: "bg-purple-200"
+    children: (0, jsx_runtime_1.jsx)("h1", Object.assign({
+      className: "text-xl text-center py-10 font-bold"
     }, {
-      children: [(0, jsx_runtime_1.jsx)("div", Object.assign({
-        className: "text-x4 text-center font-bold bg-slate-100"
+      children: props.title
+    }))
+  });
+};
+
+exports["default"] = PageName;
+
+/***/ }),
+
+/***/ "./resources/js/Components/QuickLinks.tsx":
+/*!************************************************!*\
+  !*** ./resources/js/Components/QuickLinks.tsx ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+var inertia_react_1 = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+
+var QuickLinks = function QuickLinks() {
+  return (0, jsx_runtime_1.jsx)(jsx_runtime_1.Fragment, {
+    children: (0, jsx_runtime_1.jsxs)("nav", Object.assign({
+      className: "pt-3 pl-5"
+    }, {
+      children: [(0, jsx_runtime_1.jsx)(inertia_react_1.InertiaLink, Object.assign({
+        href: "/transaction",
+        className: "bg-purple-400 hover:bg-red-400 text-white font-bold py-1 pr-4 pl-2 mr-10 rounded focus:shadow-outline"
       }, {
-        children: "Welcome to HomePage."
-      })), (0, jsx_runtime_1.jsx)("hr", {}), (0, jsx_runtime_1.jsxs)("div", Object.assign({
-        className: "py-5 "
+        children: "Create Transaction"
+      })), (0, jsx_runtime_1.jsx)(inertia_react_1.InertiaLink, Object.assign({
+        href: "/transaction-list",
+        className: "bg-purple-400 hover:bg-red-400 text-white font-bold py-1 px-4 mr-10 rounded focus:shadow-outline"
       }, {
-        children: ["Click here to ", (0, jsx_runtime_1.jsx)("button", Object.assign({
-          onClick: handleClick,
-          type: "submit",
-          className: "bg-white hover:bg-blue-500 text-blue-700 font-semibold hover:text-white  px-4 border border-blue-500 hover:border-transparent rounded"
-        }, {
-          children: "Register"
-        }))]
-      })), (0, jsx_runtime_1.jsx)("hr", {}), (0, jsx_runtime_1.jsxs)("div", Object.assign({
-        className: "py-5"
+        children: "Transaction List"
+      })), (0, jsx_runtime_1.jsx)(inertia_react_1.InertiaLink, Object.assign({
+        href: "/logout",
+        className: "bg-red-400 hover:bg-red-700 text-white font-bold py-1 px-4 ml-96 rounded focus:shadow-outline"
       }, {
-        children: ["Click here to ", (0, jsx_runtime_1.jsx)("button", Object.assign({
-          onClick: onClick,
-          type: "submit",
-          className: "bg-white hover:bg-blue-500 text-blue-700 font-semibold hover:text-white border border-blue-500 hover:border-transparent rounded"
-        }, {
-          children: "Login"
-        }))]
+        children: "Logout"
       }))]
     }))
   });
 };
 
-exports["default"] = Home;
+exports["default"] = QuickLinks;
+
+/***/ }),
+
+/***/ "./resources/js/Pages/TransactionList.tsx":
+/*!************************************************!*\
+  !*** ./resources/js/Pages/TransactionList.tsx ***!
+  \************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+var PageName_1 = __importDefault(__webpack_require__(/*! ../Components/PageName */ "./resources/js/Components/PageName.tsx"));
+
+var inertia_1 = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+
+var QuickLinks_1 = __importDefault(__webpack_require__(/*! ../Components/QuickLinks */ "./resources/js/Components/QuickLinks.tsx"));
+
+var TransactionList = function TransactionList(props) {
+  var onClick = function handleClick() {
+    inertia_1.Inertia.get('transaction');
+  };
+
+  return (0, jsx_runtime_1.jsxs)("div", Object.assign({
+    className: "bg-slate-100"
+  }, {
+    children: [(0, jsx_runtime_1.jsx)(QuickLinks_1["default"], {}), (0, jsx_runtime_1.jsxs)("div", {
+      children: [(0, jsx_runtime_1.jsx)(PageName_1["default"], {
+        title: 'Transaction List'
+      }), (0, jsx_runtime_1.jsxs)("table", Object.assign({
+        className: "table-auto min-w-full mt-5"
+      }, {
+        children: [(0, jsx_runtime_1.jsx)("thead", Object.assign({
+          className: "border-b"
+        }, {
+          children: (0, jsx_runtime_1.jsxs)("tr", {
+            children: [(0, jsx_runtime_1.jsx)("th", {
+              children: "Date"
+            }), (0, jsx_runtime_1.jsx)("th", {
+              children: "Description"
+            }), (0, jsx_runtime_1.jsx)("th", {
+              children: "Paid To/By"
+            }), (0, jsx_runtime_1.jsx)("th", {
+              children: "Total"
+            }), (0, jsx_runtime_1.jsx)("th", {
+              children: "Type"
+            }), (0, jsx_runtime_1.jsx)("th", {
+              children: "Status"
+            }), (0, jsx_runtime_1.jsx)("th", {
+              children: "UTR"
+            }), (0, jsx_runtime_1.jsx)("th", {
+              children: "Project"
+            }), (0, jsx_runtime_1.jsx)("th", {
+              children: "Actions"
+            })]
+          })
+        })), (0, jsx_runtime_1.jsx)("tbody", {
+          children: props.list.map(function (item) {
+            return (0, jsx_runtime_1.jsxs)("tr", Object.assign({
+              className: "border-b text-center"
+            }, {
+              children: [(0, jsx_runtime_1.jsx)("td", {
+                children: item.date
+              }), (0, jsx_runtime_1.jsx)("td", {
+                children: item.description
+              }), (0, jsx_runtime_1.jsx)("td", {
+                children: item.paid
+              }), (0, jsx_runtime_1.jsx)("td", {
+                children: item.unit_amount * item.unit_quantity
+              }), (0, jsx_runtime_1.jsx)("td", {
+                children: item.type
+              }), (0, jsx_runtime_1.jsx)("td", {
+                children: item.status
+              }), (0, jsx_runtime_1.jsx)("td", {
+                children: item.utr
+              }), (0, jsx_runtime_1.jsx)("td", {
+                children: item.project
+              }), (0, jsx_runtime_1.jsxs)("td", {
+                children: [(0, jsx_runtime_1.jsx)("a", Object.assign({
+                  href: 'edit/' + item.id,
+                  className: "bg-emerald-400 hover:bg-blue-500 text-white font-semibold hover:text-white pr-4 pl-2 :border-transparent rounded"
+                }, {
+                  children: "Edit"
+                })), (0, jsx_runtime_1.jsx)("a", Object.assign({
+                  href: 'delete/' + item.id,
+                  className: "bg-red-400 hover:bg-red-700 text-white font-bold ml-2 px-2 rounded focus:shadow-outline"
+                }, {
+                  children: "Delete"
+                })), (0, jsx_runtime_1.jsx)("a", Object.assign({
+                  href: 'download/' + item.id,
+                  className: "bg-orange-400 hover:bg-red-400 text-white font-bold pr-4 pl-2 ml-2 rounded focus:shadow-outline"
+                }, {
+                  children: "Download Reciept"
+                }))]
+              })]
+            }), item.id);
+          })
+        })]
+      })), (0, jsx_runtime_1.jsx)("br", {}), (0, jsx_runtime_1.jsx)("button", Object.assign({
+        onClick: onClick,
+        type: "submit",
+        className: "bg-emerald-400 hover:bg-blue-500 text-white font-semibold hover:text-white pr-4 pl-2 ml-4 :border-transparent rounded"
+      }, {
+        children: "Create Transaction"
+      }))]
+    })]
+  }));
+};
+
+exports["default"] = TransactionList;
 
 /***/ }),
 
